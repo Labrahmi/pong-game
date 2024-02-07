@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Pong Game | Start a game</title>
+</head>
+
+<body class="p-4 sm:p-8 md:p-16 lg:p-32 xl:p-40 bg-black w-screen h-screen text-white flex justify-center">
+    <div class="p-4 w-fit h-fit min-w-[32rem] select-none text-2xl">
+        <h1 class="text-4xl font-bold">Welcome to pong game</h1>
+        <div class="flex py-2"></div>
+        <form class="flex flex-col" action="/" method="get">
+            <label for="player" class="">Type your name</label>
+            <input required type="text" name="player" id="player" class="p-4 rounded text-purple-700 w-full focus:outline-none border border-purple-700" placeholder="ylabrahm">
+            <div class="flex py-2"></div>
+            <div>
+                <label for="difficulty" class="">Select difficulty</label>
+                <select name="difficulty" id="difficulty" class="p-4 rounded text-purple-700 w-full focus:outline-none border border-purple-700">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="flex py-2"></div>
+            <button type="submit" class="p-4 rounded bg-purple-700 w-full focus:outline-none border border-purple-950 hover:bg-purple-800">Start a game</button>
+        </form>
+    </div>
+</body>
+
+</html>

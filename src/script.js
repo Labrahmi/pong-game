@@ -55,6 +55,17 @@ class Ball {
 
     // collision method
     collisionWithEdges(params) {
+        if (this.x + this.radius > params.width || this.x - this.radius < 0) {
+            // reset ball position
+            this.x = params.width / 2;
+            this.y = params.height / 2;
+            // reset ball velocity
+            this.velocity.x = 12;
+            this.velocity.y = 12;
+            // reset computer turn
+            computerTurn = true;
+
+        }
         if (this.y + this.radius > params.height || this.y - this.radius < 0) {
             this.velocity.y *= -1;
         }
@@ -113,7 +124,7 @@ class Paddle {
 }
 
 // create ball
-const ball = new Ball(500, 100, 20, '#8b5cf6', 'brown', { x: 10, y: 10 });
+const ball = new Ball(canvas.width / 2, canvas.height / 2, 20, '#8b5cf6', 'brown', { x: 12, y: 8 });
 
 // create paddles in the canvas boundaries (left and right)
 const paddleHeight = 200;
@@ -163,19 +174,17 @@ function gameDraw() {
     // make the computer play
     if (computerTurn)
         computerPlay(16);
-    // draw ball
     ball.draw();
-    // draw paddles
     paddle1.draw();
     paddle2.draw();
-    ball.velocity.y *= 1.0001;
-    ball.velocity.x *= 1.0001;
 }
 
 function gameLoop() {
     // update and draw game
     gameUpdate();
     gameDraw();
+    ball.velocity.x *= 1.001;
+    ball.velocity.y *= 1.001;
     requestAnimationFrame(gameLoop);
 }
 
